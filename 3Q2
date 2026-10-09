@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+int n, head, i, j, min, pos, total=0;
+int a[100], used[100]={0};
+scanf("%d",&n);
+for(i=0;i<n;i++)
+scanf("%d",&a[i]);
+scanf("%d",&head);
+printf("Order: %d",head);
+for(i=0;i<n;i++)
+{
+min=9999;
+for(j=0;j<n;j++)
+{
+if(!used[j] && abs(head-a[j])<min)
+{
+min=abs(head-a[j]);
+pos=j;
+} }
+used[pos]=1;
+total+=abs(head-a[pos]);
+head=a[pos];
+printf(" -> %d",head);
+}
+printf("\nTotal head movement = %d",total);
+return 0;
+}
